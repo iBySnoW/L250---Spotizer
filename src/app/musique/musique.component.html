@@ -1,10 +1,10 @@
 <app-accueil></app-accueil>
 <div class="container">
   <h1 class="m-4">Les musiques</h1>
-  <div class="row">
+  <div class="row w-100 justify-content-center">
     <ng-container *ngFor="let song of songs; index as i">
-      <div class="card m-2">
-        <img class="card-img-top" src="https://source.unsplash.com/random/200x200" alt="Card image cap">
+      <div class="card m-2 w-25">
+        <iframe class="d-flex align-items-center w-100 p-3" [src]="getSafeUrl(song.youtube)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="card-body">
           <h5 class="card-title">{{ song.title }}</h5>
           <p class="card-text">{{ song.artist }}</p>
