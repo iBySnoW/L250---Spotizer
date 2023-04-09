@@ -3,13 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { ArtisteComponent } from './artiste/artiste.component';
 import { MusiqueComponent } from './musique/musique.component';
 import { PlaylistComponent } from './playlist/playlist.component';
-import { AccueilComponent } from './accueil/accueil.component';
+import { AlbumComponent} from "./album/album.component";
 
 const routes: Routes = [
-  {path : '', component : AccueilComponent},
+  { path: '',   redirectTo: '/musique', pathMatch: 'full' },
   { path: 'artiste', component: ArtisteComponent },
   { path: 'musique', component: MusiqueComponent },
   { path: 'playlist', component: PlaylistComponent },
+  { path: 'album', component: AlbumComponent },
 ];
 
 @NgModule({
