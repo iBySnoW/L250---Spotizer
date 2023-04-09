@@ -1,4 +1,4 @@
-export interface artist {
+export interface Artist {
   id: number;
   name: string;
   songs: [];

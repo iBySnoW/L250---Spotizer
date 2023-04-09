@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { album } from "../../Model/album"
+import { Album } from "../../Model/album"
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +7,20 @@ import { album } from "../../Model/album"
 export class AlbumService {
 
   private BASE_URL : string = "https://mmi.unilim.fr/~morap01/L250/public/index.php"
+  private _albums : Array<Album> = []
+  get albums(): Array<Album> {
+    return this._albums;
+  }
 
-  constructor() { }
+  set albums(value: Array<Album>) {
+    this._albums = value;
+  }
 
-  async getAlbums() : Promise<Array<album>> {
+  constructor() {
+    this.getAlbums()
+  }
+
+  async getAlbums() : Promise<void> {
     return await fetch(`${this.BASE_URL}/api/albums`, {
       method: 'GET',
       headers: {
@@ -21,12 +31,14 @@ export class AlbumService {
       .then(function (res: Response) {
         return res.json();
       })
-      .then(function (data) {
-        return data;
+      .then((data) => {
+        data.forEach((album: Album) => {
+          this._albums.push(album)
+        })
       });
   }
 
-  async getOneAlbum(id : number) : Promise<Array<album>> {
+  async getOneAlbum(id : number) : Promise<Array<Album>> {
     return await fetch(`${this.BASE_URL}/api/albums/${id}`, {
       method: 'GET',
       headers: {

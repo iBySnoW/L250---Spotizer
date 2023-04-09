@@ -5,10 +5,20 @@ import { Injectable } from '@angular/core';
 })
 export class PlaylistService {
   private BASE_URL : string = "https://mmi.unilim.fr/~morap01/L250/public/index.php"
+  private _playlists : Array<any> = []
+  get playlists(): Array<any> {
+    return this._playlists;
+  }
 
-  constructor() { }
+  set playlists(value: Array<any>) {
+    this._playlists = value;
+  }
 
-  async getPlaylists() : Promise<Array<any>> {
+  constructor() {
+    this.getPlaylists()
+  }
+
+  async getPlaylists() : Promise<void> {
     return await fetch(`${this.BASE_URL}/api/playlists`, {
       method: 'GET',
       headers: {
@@ -19,9 +29,11 @@ export class PlaylistService {
       .then(function (res: Response) {
         return res.json();
       })
-      .then(function (data) {
-        return data;
-      });
+      .then((data) => {
+        data.forEach((playlist: any) => {
+          this._playlists.push(playlist)
+        })
+      })
   }
 
   async getOneArtist(id : number) : Promise<Array<any>> {
