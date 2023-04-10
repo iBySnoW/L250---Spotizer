@@ -13,7 +13,7 @@
     <div class="col-md-12">
       <ul>
         <li *ngFor="let song of album.songs">
-          {{ song.title }}
+          <a href="{{ song.youtube }}">{{ song.title }}</a>
         </li>
       </ul>
     </div>

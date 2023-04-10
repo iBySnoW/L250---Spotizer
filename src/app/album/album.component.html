@@ -6,8 +6,11 @@
         <a [href]="'/album/' + album.id" class="card-text">
           <img class="card-img-top" src="{{ album.image }}" alt="album">
         </a>
+
         <div class="card-body">
-          <h2 class="h5 card-title">{{ album.title }}</h2>
+          <a [href]="'/album/' + album.id" class="card-text">
+            <h2 class="h5 card-title">{{ album.title }}</h2>
+          </a>
           <a [href]="'/artiste/' + album.artist.id" class="card-text">Artist</a>
         </div>
       </div>
