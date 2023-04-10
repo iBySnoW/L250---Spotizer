@@ -1,8 +1,7 @@
-<app-accueil></app-accueil>
 <div class="container">
   <h1 class="m-4">Les artistes</h1>
   <div class="row w-100 justify-content-center text-center">
-    <ng-container *ngFor="let artist of artists; index as i">
+    <ng-container *ngFor="let artist of artistService.searchArtists.length != 0 ? artistService.searchArtists : artists; index as i">
       <div class="d-flex flex-column mx-4 mb-2 w-25">
         <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random/200x200" alt="artist">
         <div class="card-body">

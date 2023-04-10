@@ -10,7 +10,7 @@ import {Artist} from "../Model/artiste";
 })
 export class ArtisteComponent {
   public artists : Array<Artist>
-  constructor(public songService: ArtistService, public sanitizer: DomSanitizer) {
-    this.artists = this.songService.artists
+  constructor(public artistService: ArtistService, public sanitizer: DomSanitizer) {
+    this.artists = this.artistService.artists
   }
 }

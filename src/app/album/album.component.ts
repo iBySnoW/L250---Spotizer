@@ -11,7 +11,7 @@ import {Album} from "../Model/album";
 })
 export class AlbumComponent {
   public albums : Array<Album>
-  constructor(public songService: AlbumService,) {
-    this.albums = this.songService.albums;
+  constructor(public albumService: AlbumService,) {
+    this.albums = this.albumService.albums;
   }
 }

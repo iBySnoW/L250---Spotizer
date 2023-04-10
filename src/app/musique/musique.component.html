@@ -1,13 +1,12 @@
-<app-accueil></app-accueil>
 <div class="container">
-  <h1 class="m-4">Les musiques</h1>
+  <h1  class="m-4">Les musiques</h1>
   <div class="row w-100 justify-content-center">
-    <ng-container *ngFor="let song of songs; index as i">
+    <ng-container *ngFor="let song of songService.songsSearch.length != 0 ? songService.songsSearch : songs; index as i">
       <div class="card m-2 w-25">
         <iframe class="d-flex align-items-center w-100 p-3" [src]="getSafeUrl(song.youtube)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="card-body">
           <h5 class="card-title">{{ song.title }}</h5>
-          <a [href]="'/artiste/' + song.artist.split('/').pop()" class="card-text">Artist</a>
+          <a [routerLink]="'/artiste/' + song.artist.split('/').pop()" class="card-text">Artist</a>
         </div>
       </div>
     </ng-container>

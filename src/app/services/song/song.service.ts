@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Song } from "../../Model/song";
+import { MusiqueComponent } from "../../musique/musique.component";
 
 @Injectable({
   providedIn: 'root'
@@ -7,6 +8,8 @@ import { Song } from "../../Model/song";
 export class SongService {
   private BASE_URL : string = "https://mmi.unilim.fr/~morap01/L250/public/index.php"
   private _songs : Array<Song> = []
+  private _songsSearch : Array<Song> = []
+
   constructor() {
     this.getSongs()
   }
@@ -17,6 +20,14 @@ export class SongService {
 
   set songs(value: Array<Song>) {
     this._songs = value;
+  }
+
+  get songsSearch(): Array<Song> {
+    return this._songsSearch;
+  }
+
+  set songsSearch(value: Array<Song>) {
+    this._songsSearch = value;
   }
 
   async getSongs() : Promise<void> {
@@ -31,8 +42,29 @@ export class SongService {
         return res.json();
       })
       .then((data) => {
+
         data.forEach((song: Song) => {
           this._songs.push(song)
+        })
+      })
+  }
+  async getSearchSongs(searchValue : string) : Promise<void> {
+    return await fetch(`${this.BASE_URL}/api/songs?title=${searchValue}`, {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(function (res: Response) {
+        return res.json();
+      })
+      .then((data) => {
+
+        console.log('searchSong')
+        this.songsSearch = []
+        data.forEach((song: Song) => {
+          this._songsSearch.push(song)
         })
       })
   }
