@@ -1,0 +1,10 @@
+<div class="row m-4">
+  <div class="col-md-4">
+    <a [href]="'/album/' + album.id" class="card-text">
+    <img src="{{ album.image }}" alt="Nom de l'album" class="img-fluid">
+    </a>
+  </div>
+  <div class="col-md-8">
+    <a [href]="'/album/' + album.id" class="card-text">{{ album.title }}</a>
+  </div>
+</div>
