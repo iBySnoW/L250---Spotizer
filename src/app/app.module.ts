@@ -10,6 +10,7 @@ import { AccueilComponent } from './accueil/accueil.component';
 import { AlbumComponent } from './album/album.component';
 import { ArtistDetailsComponent } from './artist-details/artist-details.component';
 import { AlbumDetailsComponent } from './album-details/album-details.component';
+import { MusiqueDetailsComponent } from './musique-details/musique-details.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { AlbumDetailsComponent } from './album-details/album-details.component';
     AccueilComponent,
     AlbumComponent,
     ArtistDetailsComponent,
-    AlbumDetailsComponent
+    AlbumDetailsComponent,
+    MusiqueDetailsComponent
   ],
   imports: [
     BrowserModule,

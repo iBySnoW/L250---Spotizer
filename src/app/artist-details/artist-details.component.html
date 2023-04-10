@@ -22,7 +22,7 @@
       <h2>Chansons</h2>
       <ul>
         <li *ngFor="let song of artist.songs">
-          {{ getSong(song) }}
+          <app-musique-details [id]="getSongId(song)"></app-musique-details>
         </li>
       </ul>
     </div>

@@ -35,19 +35,10 @@ export class AlbumDetailsComponent {
 
 
   constructor(public albumService : AlbumService, public songService: SongService, private route : ActivatedRoute)  {
-
   }
 
   async ngOnInit() {
     this.id = parseInt(<string>this.route.snapshot.paramMap.get('id'))
-
     this.album = await this.albumService.getOneAlbum(this.id)
-    console.log(this.album)
-  }
-
-  async getSong(idString: string) {
-    let id = idString.split('/').pop()
-    //let song = await this.songService.getOneSong(parseInt(id))
-    //return song.title
   }
 }
