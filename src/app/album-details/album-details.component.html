@@ -1,1 +1,22 @@
-<p>{{ album.title }}</p>
+<app-accueil></app-accueil>
+<div class="container">
+  <div class="row m-4">
+    <div class="col-md-4">
+      <img src="{{ album.image }}" alt="Nom de l'album" class="img-fluid">
+    </div>
+    <div class="col-md-8">
+      <h1>{{ album.title }}</h1>
+      <a [href]="'/artiste/' + album.artist.id" class="h4 card-text">Artist</a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <ul>
+        <li *ngFor="let song of album.songs">
+          {{ song }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
