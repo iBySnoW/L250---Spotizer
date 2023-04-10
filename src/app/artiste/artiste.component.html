@@ -4,9 +4,9 @@
   <div class="row w-100 justify-content-center text-center">
     <ng-container *ngFor="let artist of artists; index as i">
       <div class="d-flex flex-column mx-4 mb-2 w-25">
-        <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random/200x200" alt="Card image cap">
+        <img class="card-img-top rounded-circle" src="https://source.unsplash.com/random/200x200" alt="artist">
         <div class="card-body">
-          <h2 class="h5 card-title">{{ artist.name }}</h2>
+          <a [href]="'/artiste/' + artist.id" class="card-text"><h2 class="h5 card-title">{{ artist.name }}</h2></a>
         </div>
       </div>
     </ng-container>

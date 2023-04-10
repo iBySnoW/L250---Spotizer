@@ -1,4 +1,30 @@
-<p>artist-details works! {{ artist.id }}</p>
-<p> {{ artist.name }}</p>
-<p> {{ artist.albums }}</p>
-<p> {{ artist.songs }}</p>
+<app-accueil></app-accueil>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1>{{ artist.name }}</h1>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Albums</h2>
+      <ul>
+        <li *ngFor="let album of artist.albums">
+          {{ album }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Chansons</h2>
+      <ul>
+        <li *ngFor="let song of artist.songs">
+          {{ getSong(song) }}
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
