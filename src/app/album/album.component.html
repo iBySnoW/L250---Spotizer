@@ -3,15 +3,15 @@
   <div class="row w-100 justify-content-center text-center">
     <ng-container *ngFor="let album of albumService.searchAlbums.length != 0 ? albumService.searchAlbums : albums; index as i">
       <div class="card m-2 w-25">
-        <a [href]="'/album/' + album.id" class="card-text">
+        <a [routerLink]="'/album/' + album.id" class="card-text">
           <img class="card-img-top" src="{{ album.image }}" alt="album">
         </a>
 
         <div class="card-body">
-          <a [href]="'/album/' + album.id" class="card-text">
+          <a [routerLink]="'/album/' + album.id" class="card-text">
             <h2 class="h5 card-title">{{ album.title }}</h2>
           </a>
-          <a [href]="'/artiste/' + album.artist.id" class="card-text">Artist</a>
+          <a [routerLink]="'/artiste/' + album.artist.id" class="card-text">Artist</a>
         </div>
       </div>
     </ng-container>
