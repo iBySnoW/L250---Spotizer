@@ -31,4 +31,10 @@ export class ArtistDetailsComponent {
     }
     return '';
   }
+  getAlbumId(album: string): string {
+    if (typeof album === 'string') {
+    return album.split('/')?.pop() || '';
+  }
+  return '';
+  }
 }

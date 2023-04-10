@@ -25,10 +25,10 @@ export class MusiqueDetailsComponent {
   }
 
   async ngOnInit() {
-    let idss = 0;
+    let musicId = 0;
     if (typeof this.id === "string") {
-      idss = parseInt(this.id)
+      musicId = parseInt(this.id)
     }
-    this.song = await this.songService.getOneSong(idss)
+    this.song = await this.songService.getOneSong(musicId)
   }
 }

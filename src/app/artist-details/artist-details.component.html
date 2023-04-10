@@ -11,7 +11,7 @@
       <h2>Albums</h2>
       <ul>
         <li *ngFor="let album of artist.albums">
-          {{ album }}
+          <app-album-description [id]="getAlbumId(album)"></app-album-description>
         </li>
       </ul>
     </div>
