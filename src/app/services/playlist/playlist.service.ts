@@ -36,7 +36,7 @@ export class PlaylistService {
       })
   }
 
-  async getOneArtist(id : number) : Promise<Array<any>> {
+  async getOneArtist(id : number) : Promise<any> {
     return await fetch(`${this.BASE_URL}/api/playlists/${id}`, {
       method: 'GET',
       headers: {

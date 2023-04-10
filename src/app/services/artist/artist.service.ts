@@ -7,6 +7,7 @@ export class ArtistService {
 
   private BASE_URL : string = "https://mmi.unilim.fr/~morap01/L250/public/index.php"
   private _artists : Array<Artist> = []
+
   get artists(): Array<Artist> {
     return this._artists;
   }
@@ -37,7 +38,7 @@ export class ArtistService {
       });
   }
 
-  async getOneArtist(id : number) : Promise<Array<Artist>> {
+  async getOneArtist(id : number) : Promise<Artist> {
     return await fetch(`${this.BASE_URL}/api/artists/${id}`, {
       method: 'GET',
       headers: {
@@ -51,5 +52,11 @@ export class ArtistService {
       .then(function (data) {
         return data;
       });
+  }
+
+  public getModelIndexById(id: number) {
+    return this._artists.findIndex(function (element) {
+      return element.id === id;
+    });
   }
 }

@@ -38,7 +38,7 @@ export class AlbumService {
       });
   }
 
-  async getOneAlbum(id : number) : Promise<Array<Album>> {
+  async getOneAlbum(id : number) : Promise<Album> {
     return await fetch(`${this.BASE_URL}/api/albums/${id}`, {
       method: 'GET',
       headers: {

@@ -37,7 +37,7 @@ export class SongService {
       })
   }
 
-  async getOneSong(id : number) : Promise<Array<Song>> {
+  async getOneSong(id : number) : Promise<Song> {
     return await fetch(`${this.BASE_URL}/api/songs/${id}`, {
       method: 'GET',
       headers: {

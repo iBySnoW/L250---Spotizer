@@ -7,7 +7,7 @@
         <iframe class="d-flex align-items-center w-100 p-3" [src]="getSafeUrl(song.youtube)" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="card-body">
           <h5 class="card-title">{{ song.title }}</h5>
-          <a href="#" class="card-text">Fonction pour artiste</a>
+          <a [href]="'/artiste/' + song.artist.split('/').pop()" class="card-text">Artist</a>
         </div>
       </div>
     </ng-container>
